@@ -1,0 +1,56 @@
+<!-- include header ejs -->
+<%- include('include/_header') %>
+    <!-- /include header ejs -->
+
+    <!--main site-->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="add_user" class="border-shadow">
+                    <!-- this fas fa user is from font awesome icons -->
+                    <span class="text-gradient"> NEW User <i class="fas fa-user"></i></span>
+                </a>
+            </div>
+            <form action="/" method="POST">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Username</td>
+                            <td>davidsureway@gmail.com</td>
+                            <td>Male</td>
+                            <td>Active</td>
+                            <td>
+                                <a href="#" class='btn border-shadow update'>
+                                    <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                </a>
+                                <a class='btn border-shadow delete'>
+                                    <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                </a>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+    <!--/main site-->
+
+
+
+
+
+    <!-- include footer ejs -->
+    <%- include('include/_footer') %>
+        <!-- include footer ejs -->
