@@ -36,22 +36,14 @@ app.use('/js', express.static(path.resolve(__dirname, "assets/js")))
 //   res.send('crud application')
 // })
 
-app.get('/', (req, res) => {
-  res.render('index.ejs')
-})
-
-app.get('/add_user', (req, res) => {
-  res.render('add_user.ejs')
-})
-
-
-app.listen(PORT, () => {
-    console.log('server is listening on port PORT...')
-})
+//load routes
+app.use('/', require ('./server/routes/router'))
   
+app.listen(PORT, () => {
+  console.log('server is listening on port PORT...')
+})
 
-
-
+//time = 1:18:00
 
 
 
