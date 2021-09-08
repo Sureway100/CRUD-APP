@@ -4,14 +4,25 @@ const morgan = require('morgan');
 const bodyparser = require('body-parser');
 const path = require('path')
 
+const connectDB = require('./server/database/connection')
+
 const app = express()
 
+/** dotenv =>> this helps us to save our source settings or credentials you wouldnt want to share
+to the public...so third party will require to create their own credentials.. you can even git ignore
+this file
+*/
 dotenv.config({path:'./config.env'})
 const PORT = process.env.PORT || 8080
 
 
 //log requests
 app.use(morgan('tiny'));
+
+
+//mongodb connection
+connectDB();
+
 
 //if you want to get the form data (parse form data)
 //urlencoded is called body parser
@@ -36,14 +47,15 @@ app.use('/js', express.static(path.resolve(__dirname, "assets/js")))
 //   res.send('crud application')
 // })
 
-//load routes
+//load routes..we want to separate our render and routes from our server
+//this server.js holds every file necesary for anything to perform its work
 app.use('/', require ('./server/routes/router'))
   
 app.listen(PORT, () => {
-  console.log('server is listening on port PORT...')
+  console.log(`server is listening on port ${PORT}...`)
 })
 
-//time = 1:18:00
+//time = 1:31:00
 
 
 
