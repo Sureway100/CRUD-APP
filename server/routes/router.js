@@ -3,6 +3,8 @@ const route = express.Router()
 
 const services = require('../services/render');
 
+const controller = require('../controller/controller')
+
 // app.get('/', (req, res) => {
 //   res.render('index.ejs')
 // })
@@ -30,7 +32,11 @@ route.get('/add_user', services.add_user)
 /**GET METHOD FOR update ROUTE */
 route.get('/update_user', services.update_user)
   
-  
+//API....when the route is matched
+route.post('/api/users', controller.create);
+route.get('/api/users', controller.find);
+route.put('/api/users/:id', controller.update);
+route.delete('/api/users', controller.delete);
 
 
 module.exports = route
